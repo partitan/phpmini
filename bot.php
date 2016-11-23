@@ -16,19 +16,36 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
 			
-			if ($text == "20") {
+			if ($text == "0") {
 			$messages = [
 				'type' => 'text',
-				'text' => 'hello why dont you google it'
+				'text' => 'hello why dont you google it 0'
 			];
 
+			} elseif ($text == "1"){
+			$messages = [
+				'type' => 'text',
+				//'text' => $text
+				'text' => 'hello why dont you google it1'
+			];
+			} elseif ($text == "2"){
+			$messages = [
+				'type' => 'text',
+				//'text' => $text
+				'text' => 'hello why dont you google it2'
+			];		
 			} else {
 			$messages = [
 				'type' => 'text',
 				'text' => $text
-				//'text' => 'hello why dont you google it'
-			];
-			}		
+				//'text' => 'hello why dont you google it2'
+			];		
+			}
+			
+			
+			
+			
+			
 			
 			
 			// Make a POST Request to Messaging API to reply to sender
