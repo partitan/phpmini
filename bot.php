@@ -15,11 +15,22 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
+			
+			if ($text == "20") {
 			$messages = [
 				'type' => 'text',
-				//'text' => $text
 				'text' => 'hello why dont you google it'
 			];
+
+			} else {
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+				//'text' => 'hello why dont you google it'
+			];
+			}		
+			
+			
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
