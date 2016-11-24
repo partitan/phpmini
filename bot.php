@@ -15,38 +15,21 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Build message to reply back
-			
-			if ($text == "0") {
-			$messages = [
-				'type' => 'text',
-				'text' => 'hello why dont you google it 0'
-			];
-
-			} elseif ($text == "1"){
-			$messages = [
-				'type' => 'text',
-				//'text' => $text
-				'text' => 'hello why dont you google it1'
-			];
-			} elseif ($text == "2"){
-			$messages = [
-				'type' => 'text',
-				//'text' => $text
-				'text' => 'hello why dont you google it2'
-			];		
-			} else {
 			$messages = [
 				'type' => 'text',
 				'text' => $text
-				//'text' => 'hello why dont you google it2'
-			];		
-			}
+			];
 			
-			
-			
-			
-			
-			
+		
+			//Twitter APP
+			$consumerKey    = '4MTtBPsekfyeS1gGLIndqbWbC';
+			$consumerSecret = 'WGBrMsZacLjCp3KPGhxyvDHske0N9YS1ZZiewnaGOXVpfst04J';
+			$oAuthToken     = '747679427291676673-vuIY9VA4WL1e0t0kBkqL5P4uF3S4GHZ';
+			$oAuthSecret    = 'NUqaIFUzx5iiPkMsqlEvzhJe3hrO1JXxLQ2mwvYX36gph';
+			require_once('twitteroauth.php');
+			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
+			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' => $messages ));
+					
 			
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
