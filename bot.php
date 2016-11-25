@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 			$oAuthSecret    = 'NUqaIFUzx5iiPkMsqlEvzhJe3hrO1JXxLQ2mwvYX36gph';
 			require_once('twitteroauth.php');
 			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' => [$messages] ));
+			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' =>$messages));
 					
 			
 			
