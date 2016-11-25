@@ -31,16 +31,21 @@ if (!is_null($events['events'])) {
 			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			$tweet->post('direct_messages/new', array('screen_name' => 'krungthepCXP', 'text' =>$messages));
 					
-			//sleep(5);
+			sleep(2);
 			
-			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			//$tweetreply ->get('direct_messages', array('count' => 1));
+			$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
+			$tweetreply ->get('direct_messages', array('count' => 1));
+			
+			
+			
+			
+			//Set message reply to LINE 
 			$textx = 'from CXP Proxy';
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
 			];
-
+			////////////////////////////////////////////////////////////////////
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
