@@ -31,10 +31,10 @@ if (!is_null($events['events'])) {
 			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' =>$messages));
 					
-			sleep(5);
+			//sleep(5);
 			
-			$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			$tweetreply ->get('direct_messages', array('count' => 1));
+			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
+			//$tweetreply ->get('direct_messages', array('count' => 1));
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
