@@ -19,15 +19,7 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => $text
 			];
-			///////////////////////////////////////////////////////
-			// Make a POST Request to Messaging API to reply to sender
-			//$url = 'https://api.line.me/v2/bot/message/reply';
-			//$data = [
-			//	'replyToken' => $replyToken,
-			//	'messages' => [$messages],
-			//];
-			/////////////////////////////////////////////////////
-			//Twitter APP
+			
 			$consumerKey    = '4MTtBPsekfyeS1gGLIndqbWbC';
 			$consumerSecret = 'WGBrMsZacLjCp3KPGhxyvDHske0N9YS1ZZiewnaGOXVpfst04J';
 			$oAuthToken     = '747679427291676673-vuIY9VA4WL1e0t0kBkqL5P4uF3S4GHZ';
@@ -38,6 +30,15 @@ if (!is_null($events['events'])) {
 					
 			
 			
+			///////////////////////////////////////////////////////
+			//Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			/////////////////////////////////////////////////////
+			//Twitter APP
 			
 			
 			
@@ -56,4 +57,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-//echo "OK";
+echo "OK";
