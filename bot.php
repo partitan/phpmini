@@ -20,6 +20,8 @@ if (!is_null($events['events'])) {
 				'text' => $text
 			];
 			
+		
+			//Twitter APP
 			$consumerKey    = '4MTtBPsekfyeS1gGLIndqbWbC';
 			$consumerSecret = 'WGBrMsZacLjCp3KPGhxyvDHske0N9YS1ZZiewnaGOXVpfst04J';
 			$oAuthToken     = '747679427291676673-vuIY9VA4WL1e0t0kBkqL5P4uF3S4GHZ';
@@ -29,20 +31,12 @@ if (!is_null($events['events'])) {
 			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' => $messages ));
 					
 			
-			
-			///////////////////////////////////////////////////////
-			//Make a POST Request to Messaging API to reply to sender
+			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
 			];
-			/////////////////////////////////////////////////////
-			//Twitter APP
-			
-			
-			
-			
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
@@ -57,4 +51,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+//echo "OK";
