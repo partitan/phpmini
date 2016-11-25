@@ -23,13 +23,13 @@ if (!is_null($events['events'])) {
 
 			
 			//Twitter APP
-			$consumerKey    = '4MTtBPsekfyeS1gGLIndqbWbC';
-			$consumerSecret = 'WGBrMsZacLjCp3KPGhxyvDHske0N9YS1ZZiewnaGOXVpfst04J';
-			$oAuthToken     = '747679427291676673-vuIY9VA4WL1e0t0kBkqL5P4uF3S4GHZ';
-			$oAuthSecret    = 'NUqaIFUzx5iiPkMsqlEvzhJe3hrO1JXxLQ2mwvYX36gph';
+			$consumerKey    = 'LwjDAci8dZKpho1QhnV2PF6DN';
+			$consumerSecret = 'TCWqkK073gt4grLCUilslRmS5NRoHvYJUMQuiCPIu6FNfMHzBC';
+			$oAuthToken     = '802168980853006336-Xj52cmzoQvIUQLVXqvaebyCVwiqEamK';
+			$oAuthSecret    = 'xXgODYhqMiljgooADDQHDyAjeIrwcVo00gzzs48aezDFi';
 			require_once('twitteroauth.php');
 			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' =>$messages));
+			$tweet->post('direct_messages/new', array('screen_name' => 'krungthepCXP', 'text' =>$messages));
 					
 			//sleep(5);
 			
@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$msgReply],
+				'messages' => [$messages],
 			];		
 			
 			$post = json_encode($data);
