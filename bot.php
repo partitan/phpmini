@@ -32,7 +32,8 @@ if (!is_null($events['events'])) {
 			$tweet->post('direct_messages/new', array('screen_name' => 'prungkrae', 'text' =>$messages));
 					
 			sleep(2);
-			$tweetreply = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
+			
+			$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			$tweetreply ->get('direct_messages', array('count' => 1));
 
 			// Make a POST Request to Messaging API to reply to sender
