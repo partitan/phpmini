@@ -35,8 +35,11 @@ if (!is_null($events['events'])) {
 			
 			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			//$tweetreply ->get('direct_messages', array('count' => 1));
-			
-			$msgReply = 'test test test test';
+			$textx = 'from CXP Proxy';
+			$msgReply = [
+				'type' => 'text',
+				'text' => $textx
+			];
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
