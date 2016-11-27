@@ -31,7 +31,7 @@ if (!is_null($events['events'])) {
 			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			$tweet->post('direct_messages/new', array('screen_name' => 'krungthepCXP', 'text' =>$messages));
 					
-			sleep(5);
+			sleep(30);
 			
 			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			//$tweetreply ->get('direct_messages', array('count' => 1));
