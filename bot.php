@@ -36,11 +36,40 @@ if (!is_null($events['events'])) {
 			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
 			//$tweetreply ->get('direct_messages', array('count' => 1));
 			
+			////Sunday Added
 			
+			$cxpReply = $tweet-> get('direct_messages', array('count' => 1,'skip_status' => 1, 'include_entities' => false));
+			$a = json_decode($cxpReply, true);
+			$results = trim(print_r($a, true));
+			$find = "[text]";
+ 			$find2 = "[sender]";
+     
+    			if( strpos( $results, "[text]" )) {
+			$pos = strpos( $results, "[text]" );
+			$pos1 =  strpos( $results, "[sender]");
+			if ($pos === false) {
+    			//echo "The string was not found in the string";
+			} else {
+    			$textfound1 = substr ( $results, $pos, $pos1 );
+			$lentxt = strlen($textfound1);
+			$pos2 = strpos( $textfound1, "[sender] =>");
+			$msgfound = substr ( $textfound1, 0, $pos2 );
+			//echo $msgfound;
+			}     
+    			} else {
+     
+        		//echo "no $find";
+     
+    			}
+			
+			
+			sleep(5);
+			//////// Sunday End......
 			
 			
 			//Set message reply to LINE 
-			$textx = 'from CXP Proxy';
+			//$textx = 'from CXP Proxy';
+			$textx = $msgfound;
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
