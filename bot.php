@@ -57,7 +57,8 @@ if (!is_null($events['events'])) {
 			//echo $msgfound;
 			$len1 = strlen($msgfound);
 			$xxx = strpos ( $msgfound , "=>", 0 );
-			$msgfinfound = substr ( $msgfound, -1, $xxx);
+			$minx = $len1 - $xxx	
+			$msgfinfound = substr ( $msgfound, -1, $minx);
 
 			}     
     			} else {
