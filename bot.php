@@ -59,6 +59,7 @@ if (!is_null($events['events'])) {
 			$xxx = strpos ( $msgfound , "=>", 0 );
 			//$minx = $len1 - $xxx;	
 			$msgfinfound = substr ( $msgfound, $xxx);
+			$txtsnd = substr ($msgfinfound, 2);
 
 			}     
     			} else {
@@ -74,7 +75,7 @@ if (!is_null($events['events'])) {
 			
 			//Set message reply to LINE 
 			//$textx = 'from CXP Proxy';
-			$textx = trim($msgfinfound);
+			$textx = trim($txtsnd);
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
