@@ -55,6 +55,10 @@ if (!is_null($events['events'])) {
 			$pos2 = strpos( $textfound1, "[sender] =>");
 			$msgfound = substr ( $textfound1, 0, $pos2 );
 			//echo $msgfound;
+			$len1 = strlen($msgfound);
+			$xxx = strpos ( $msgfound , "=>", 0 );
+			$msgfinfound = substr ( $msgfound, $xxx);
+
 			}     
     			} else {
      
@@ -69,7 +73,7 @@ if (!is_null($events['events'])) {
 			
 			//Set message reply to LINE 
 			//$textx = 'from CXP Proxy';
-			$textx = $msgfound;
+			$textx = trim($msgfinfound);
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
