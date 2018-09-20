@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 			
 			//Set message reply to LINE 
 			//$textx = 'from CXP Proxy';
-			$textx = 'send from heroku';
+			$textx = $replyToken;
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
