@@ -19,61 +19,11 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => $text
 			];
-					
-			
-			//Twitter APP
-			$consumerKey    = 'LwjDAci8dZKpho1QhnV2PF6DN';
-			$consumerSecret = 'TCWqkK073gt4grLCUilslRmS5NRoHvYJUMQuiCPIu6FNfMHzBC';
-			$oAuthToken     = '802168980853006336-Xj52cmzoQvIUQLVXqvaebyCVwiqEamK';
-			$oAuthSecret    = 'xXgODYhqMiljgooADDQHDyAjeIrwcVo00gzzs48aezDFi';
-			require_once('twitteroauth.php');
-			$tweet = new TwitterOAuth($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			$tweet->post('direct_messages/new', array('screen_name' => 'krungthepCXP', 'text' =>$messages));
-					
-			sleep(5);
-			
-			//$tweetreply = new TwitterOAuth2($consumerKey, $consumerSecret, $oAuthToken, $oAuthSecret);
-			//$tweetreply ->get('direct_messages', array('count' => 1));
-			
-			////Sunday Added
-			
-			$cxpReply = $tweet-> get('direct_messages', array('count' => 1,'skip_status' => 1, 'include_entities' => false));
-			$a = json_decode($cxpReply, true);
-			$results = trim(print_r($a, true));
-			$find = "[text]";
- 			$find2 = "[sender]";
-     
-    			if( strpos( $results, "[text]" )) {
-			$pos = strpos( $results, "[text]" );
-			$pos1 =  strpos( $results, "[sender]");
-			if ($pos === false) {
-    			//echo "The string was not found in the string";
-			} else {
-    			$textfound1 = substr ( $results, $pos, $pos1 );
-			$lentxt = strlen($textfound1);
-			$pos2 = strpos( $textfound1, "[sender] =>");
-			$msgfound = substr ( $textfound1, 0, $pos2 );
-			//echo $msgfound;
-			$len1 = strlen($msgfound);
-			$xxx = strpos ( $msgfound , "=>", 0 );
-			//$minx = $len1 - $xxx;	
-			$msgfinfound = substr ( $msgfound, $xxx);
-			$txtsnd = substr ($msgfinfound, 2);
-			}     
-    			} else {
-     
-        		//echo "no $find";
-     
-    			}
-			
-			
-			//sleep(5);
-			//////// Sunday End......
-			
+				
 			
 			//Set message reply to LINE 
 			//$textx = 'from CXP Proxy';
-			$textx = trim($txtsnd);
+			$textx = 'send from heroku';
 			$msgReply = [
 				'type' => 'text',
 				'text' => $textx
