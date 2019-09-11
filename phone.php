@@ -4,9 +4,13 @@
             <title>Form Get Demo</title>
         </head>
         <body>
-        <strong>สวัสดี: </strong>
+        <strong>ANI: </strong>
         <?php
-            echo $_GET['phone'];
+            echo $_GET['phone'];             
         ?>
+        <strong>Customer ID: </strong>
+        <?php
+            echo $_GET['cust_id'];             
+        ?>             
         </body>
     </html>
