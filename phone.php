@@ -7,10 +7,6 @@
         <strong>ANI: </strong>
         <?php
             echo $_GET['phone'];             
-        ?>
-        <strong>Customer ID: </strong>
-        <?php
-            echo $_GET['cust_id'];             
-        ?>             
+        ?>           
         </body>
     </html>
