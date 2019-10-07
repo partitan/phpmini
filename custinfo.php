@@ -4,9 +4,7 @@
   
                 <P> Customer Phone = <?php echo $_GET['ani']; ?>
                 <BR> Customer ID = <?php echo $_GET['custid']; ?>
-                <BR>
-  
-                 <iframe src="./form.html"></iframe>
+                <BR> <iframe width="560" height="315" src="./form.html" frameborder="0" allowfullscreen></iframe>
   
  </BODY> 
 </HTML>
