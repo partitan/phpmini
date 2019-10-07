@@ -4,8 +4,9 @@
   
                 <P> Customer Phone = <?php echo $_GET['ani']; ?>
                 <BR> Customer ID = <?php echo $_GET['custid']; ?>
+                <BR>
   
-                 <iframe src="https://www.w3schools.com"></iframe>
+                 <iframe src="./form.html"></iframe>
   
  </BODY> 
 </HTML>
