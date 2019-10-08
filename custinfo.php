@@ -4,7 +4,7 @@
   
                 <P> Customer Phone = <?php echo $_GET['ani']; ?>
                 <BR> Incoming_channel = <?php echo $_GET['dnis']; ?>
-                <P> Incoming_Hospital = <?php echo $_GET['hospital_code']; ?>
+                <BR> Incoming_Hospital = <?php echo $_GET['hospital_code']; ?>
                 <BR> Call_in_flag = <?php echo $_GET['flag']; ?>
                 <BR> Call_typeg = <?php echo $_GET['call_type']; ?>
                  
