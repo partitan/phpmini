@@ -1,9 +1,13 @@
 <HTML> 
- <HEAD><TITLE> Result </TITLE></HEAD> 
+ <HEAD><TITLE> POC :::: Simulate to pass parameters to CRM :::: </TITLE></HEAD> 
  <BODY> 
   
                 <P> Customer Phone = <?php echo $_GET['ani']; ?>
-                <BR> Customer ID = <?php echo $_GET['custid']; ?>
+                <BR> Incoming_channel = <?php echo $_GET['dnis']; ?>
+                <P> Incoming_Hospital = <?php echo $_GET['hospital_code']; ?>
+                <BR> Call_in_flag = <?php echo $_GET['flag']; ?>
+                <BR> Call_typeg = <?php echo $_GET['call_type']; ?>
+                 
                 <BR> <iframe width="800" height="800" src="./form.html" frameborder="0" allowfullscreen></iframe>
   
  </BODY> 
