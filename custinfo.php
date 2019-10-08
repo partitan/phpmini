@@ -1,7 +1,8 @@
 <HTML> 
- <HEAD><TITLE> POC :::: Simulate to pass parameters to CRM :::: </TITLE></HEAD> 
+ <HEAD><TITLE> :::: POC :::: </TITLE></HEAD> 
  <BODY> 
   
+  <H1>Simulate to pass parameters to CRM Application</H1><BR>
                 <P> Customer Phone = <?php echo $_GET['ani']; ?>
                 <BR> Incoming_channel = <?php echo $_GET['dnis']; ?>
                 <BR> Incoming_Hospital = <?php echo $_GET['hospital_code']; ?>
