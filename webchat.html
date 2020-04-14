@@ -1,0 +1,48 @@
+<html>
+<head></head>
+<body>
+    <input id="start-purecloud-chat" type="button" value="Start Chat"></input>
+    <div id='purecloud-chat-container'></div>
+    <script
+        id="purecloud-webchat-js"
+        type="text/javascript"
+        src="https://apps.mypurecloud.com/webchat/jsapi-v1.js"
+        region="us-east-1"
+        org-guid="YOUR_GUID_HERE"
+        deployment-key="YOUR_KEY_HERE"
+    ></script>
+    <script type="text/javascript">
+        window.PURECLOUD_WEBCHAT_FRAME_CONFIG = {
+            containerEl: 'purecloud-chat-container'
+        };
+        var webchat;
+        window.ININ.webchat.create({
+            webchatAppUrl: 'https://apps.mypurecloud.com/webchat',
+            webchatServiceUrl: 'https://realtime.mypurecloud.com:443',
+            orgGuid: 'YOUR_GUID_HERE',
+            orgId: 'YOUR_ID_HERE',
+            orgName: 'YOUR_ORGNAME_HERE',
+            queueName : 'Support',
+            chatNowElement: 'start-purecloud-chat',
+            logLevel: 'INFO',
+            reconnectEnabled: true,
+            reconnectOrigins: [ 'https://example.com' ]
+        }).then(function(result) {
+            webchat = result;
+            const startChatButton = document.getElementById('start-purecloud-chat');
+            const headers = { Client-Token: 'YOUR_SESSION_IDENTIFIER_HERE' };
+            startChatButton.onclick = onStartChatClick;
+            function onStartChatClick () {
+                return webchat.authenticateGuest({headers: headers})
+                    .then(function() {
+                        return webchat.renderFrame({
+                            containerEl: document.getElementById('purecloud-chat-container')
+                        });
+                    })
+                    .catch(function(error) {
+                        console.error(error);
+                    });
+            };
+        });
+    </script>
+</body>
