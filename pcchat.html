@@ -1,0 +1,69 @@
+<script
+  id="purecloud-webchat-js"
+  type="text/javascript"
+  src="https://apps.mypurecloud.com.au/webchat/jsapi-v1.js"
+  region="ap-southeast-2"
+  org-guid="ab560fec-a07e-4e8c-bba6-c68539f42b0e"
+  deployment-key="5ed51c40-31dc-487d-b989-9d7aca8bbe92"
+></script>
+
+let chatConfig = {
+  "webchatAppUrl": "https://apps.mypurecloud.com.au/webchat",
+  "webchatServiceUrl": "https://realtime.mypurecloud.com.au:443",
+  "orgId": "9138",
+  "orgGuid": "ab560fec-a07e-4e8c-bba6-c68539f42b0e",
+  "orgName": "genesysapacanz",
+  "queueName": "Voice Queue",
+  "logLevel": "DEBUG",
+  "locale": "en",
+  "data": {
+    "firstName": "Mae",
+    "lastName": "Blanco",
+    "addressStreet": "1855 Nonrev Ridge",
+    "addressCity": "Jabhane",
+    "addressPostalCode": "01804",
+    "addressState": "CA",
+    "phoneNumber": "(959) 387-3909",
+    "customField1Label": "",
+    "customField1": "",
+    "customField2Label": "",
+    "customField2": "",
+    "customField3Label": "",
+    "customField3": "",
+    "email": "asukihbe@nip.bo"
+  },
+  "companyLogo": {
+    "width": 600,
+    "height": 149,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1596/assets/images/PC-blue-nomark.png"
+  },
+  "companyLogoSmall": {
+    "width": 25,
+    "height": 25,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1596/assets/images/companylogo.png"
+  },
+  "agentAvatar": {
+    "width": 462,
+    "height": 462,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1596/assets/images/agent.jpg"
+  },
+  "welcomeMessage": "Thanks for chatting using the dev tools chat page.",
+  "cssClass": "webchat-frame",
+  "css": {
+    "width": "100%",
+    "height": "100%"
+  }
+};
+
+ININ.webchat.create(chatConfig, function(err, webchat) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
+
+    webchat.renderPopup({
+        width: 400,
+        height: 400,
+        title: 'Chat'
+    });
+});
