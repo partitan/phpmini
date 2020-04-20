@@ -1,48 +1,125 @@
+<!DOCTYPE html>
 <html>
-<head></head>
-<body>
-    <input id="start-purecloud-chat" type="button" value="Start Chat"></input>
-    <div id='purecloud-chat-container'></div>
-    <script
-        id="purecloud-webchat-js"
-        type="text/javascript"
-        src="https://apps.mypurecloud.com/webchat/jsapi-v1.js"
-        region="ap-southeast-2"
-        org-guid="genesysapacanz"
-        deployment-key="ab560fec-a07e-4e8c-bba6-c68539f42b0e"
-    ></script>
-    <script type="text/javascript">
-        window.PURECLOUD_WEBCHAT_FRAME_CONFIG = {
-            containerEl: 'purecloud-chat-container'
-        };
-        var webchat;
-        window.ININ.webchat.create({
-            webchatAppUrl: 'https://apps.mypurecloud.com/webchat',
-            webchatServiceUrl: 'https://realtime.mypurecloud.com:443',
-            orgGuid: 'genesysapacanz',
-            orgId: 'ab560fec-a07e-4e8c-bba6-c68539f42b0e',
-            orgName: 'genesysapacanz',
-            queueName : 'Voice Queue',
-            chatNowElement: 'start-purecloud-chat',
-            logLevel: 'INFO',
-            reconnectEnabled: true,
-            reconnectOrigins: [ 'https://www.siamparagon.co.th/' ]
-        }).then(function(result) {
-            webchat = result;
-            const startChatButton = document.getElementById('start-purecloud-chat');
-            const headers = { Client-Token: 'YOUR_SESSION_IDENTIFIER_HERE' };
-            startChatButton.onclick = onStartChatClick;
-            function onStartChatClick () {
-                return webchat.authenticateGuest({headers: headers})
-                    .then(function() {
-                        return webchat.renderFrame({
-                            containerEl: document.getElementById('purecloud-chat-container')
-                        });
-                    })
-                    .catch(function(error) {
-                        console.error(error);
-                    });
-            };
+<head>
+    <meta charset="utf-8">
+    <title>PureCloud WebChat</title>
+</head>
+
+<body onload="customPlugin.command('WebChat.open', getPattConfig());">
+    <script type="text/javascript">window._genesys = {
+            widgets: {
+                webchat: {
+                    transport: {
+                        type: 'purecloud-v2-sockets',
+                        dataURL: 'https://api.mypurecloud.jp',
+                        deploymentKey: 'c30151ad-fa0a-4fca-9f28-dd2b51057598',
+                        orgGuid: '9a97b3a0-7a9b-4415-a659-53f12a1522df',
+                        interactionData: {
+                            routing: {
+                                targetType: 'QUEUE',
+                                targetAddress: 'ChatQueue',
+                                priority: 2
+                            }
+                        }
+                    },
+                    
+
+                    //@Start
+                    emojis: false,
+                    uploadsEnabled: false,
+                    markdown: true,
+                    userData: {
+                        // phoneNumber: '+66832522999',
+                        // phoneType: 'Mobile',
+                        // customerId: '31149',
+                        // These fields should be provided via advanced configuration
+                        // firstName: 'Praenomen',
+                        // lastName: 'Banthoonipit',
+                        // email: 'Pattadon.Banthoonipit@genesys.com',
+                        // subject: 'Covid-19'
+                    },
+                    chatButton: {
+
+                        enabled: true,
+                        template: "<div class='cx-icon' data-icon='chat'></div>",
+                        effect: 'fade',
+                        openDelay: 1000,
+                        effectDuration: 300,
+                        hideDuringInvite: true
+                    },
+
+                    async: {
+                        enabled: true,
+                        newMessageRestoreState: 'minimized',
+                        getSessionData: function (sessionData, Cookie, CookieOptions) {
+                            Cookie.set('oto-chatbot-session', JSON.stringify(sessionData), CookieOptions);
+                        },
+                        setSessionData: function (Open, Cookie, CookieOptions) {
+                            return Cookie.get('oto-chatbot-session');
+                        }
+                    },
+                    minimizeOnMobileRestore: false,
+                    ariaIdleAlertIntervals: [50, 25, 10],
+                    ariaCharRemainingIntervals: [75, 25, 10]
+                }
+                //@END
+              
+            }
+        };</script>
+
+    <script src="https://apps.mypurecloud.jp/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:true,pluginsPath:'https://apps.mypurecloud.jp/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+    <script type="text/javascript">const customPlugin = CXBus.registerPlugin('Custom');
+        customPlugin.subscribe('WebChatService.started', function (e) {
+            console.log('Chat started', e);
         });
-    </script>
+        customPlugin.subscribe('WebChatService.ended', function (e) {
+            console.log('Chat ended', e);
+        });
+
+        function getPattConfig() {
+            return {
+                form: {
+                    autoSubmit: false,
+                    firstname: 'Partitan',
+                    lastname: 'Rungkrae',
+                    email: 'partitan@gmail.com',
+                    subject: 'PEA'
+                },
+                formJSON: {
+                    wrapper: '<table></table>',
+                    inputs: [
+                        // Default fields
+                        {
+                            id: 'cx_webchat_form_firstname',
+                            name: 'firstname',
+                            maxlength: '100',
+                            placeholder: 'Required',
+                            label: 'ชื่อจริง'
+                        },
+                        {
+                            id: 'cx_webchat_form_lastname',
+                            name: 'lastname',
+                            maxlength: '100',
+                            placeholder: 'Required',
+                            label: 'นามสกุล'
+                        },
+                        {
+                            id: 'cx_webchat_form_email',
+                            name: 'email',
+                            maxlength: '100',
+                            placeholder: 'Optional',
+                            label: 'อีเมลล์'
+                        },
+                        {
+                            id: 'cx_webchat_form_subject',
+                            name: 'subject',
+                            maxlength: '100',
+                            placeholder: 'Optional',
+                            label: 'เรื่องที่ติดต่อ'
+                        },
+                    ]
+                }
+            };
+        }</script>
 </body>
+    </html>
