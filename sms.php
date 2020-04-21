@@ -12,7 +12,7 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "{\"source\":\"Developer\",\"destination\":\"+66865071710\",\"text\":\"Hello World\"}",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer your-api-key",
+    "authorization: Bearer 5mpetqZjGaxy9Nis4TaM8gPB4awSHj8q4Rw0WMVpI",
     "content-type: application/json"
   ),
 ));
