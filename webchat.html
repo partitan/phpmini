@@ -1,42 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>PureCloud WebChat</title>
-</head>
+<!DOCTYPE HTML>
 
-<body onload="customPlugin.command('WebChat.open', getPattConfig());">
-    <script type="text/javascript">window._genesys = {
+<html>
+	<head>
+		<title>Paradigm Shift by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload" onload="customPlugin.command('WebChat.open', getPattConfig());">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1>Online Banking Demo</h1>
+							<p>Thailand<a href="https://twitter.com/prungkrae">@prungkrae</a> <!-- / <a href="https://html5up.net">HTML5 UP</a></p> -->
+							<ul class="actions">
+								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section id="first">
+						<header>
+							<h2>WebChat</h2>
+						</header>
+						<div class="content">
+							<p><strong>WebChat</strong> With the widgets, your customers can chat with your contact center agents directly from your website. Depending on the widget type you select, you can also use features such as Altocloud, user authentication, and enhanced user interface configuration.  Create a web chat implementation in two steps: Create a widget in PureCloud, and then add code to your website.</p>
+							<span class="image main"><img src="images/screenshot_0d005588.png" alt="" /></span>
+						</div>
+                </section>			
+	</section>
+
+			</div>
+
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+    
+            <script type="text/javascript">window._genesys = {
             widgets: {
                 webchat: {
                     transport: {
                         type: 'purecloud-v2-sockets',
-                        dataURL: 'https://api.mypurecloud.jp',
-                        deploymentKey: 'c30151ad-fa0a-4fca-9f28-dd2b51057598',
-                        orgGuid: '9a97b3a0-7a9b-4415-a659-53f12a1522df',
+                        dataURL: 'https://api.mypurecloud.com.au',
+                        deploymentKey: '107779c0-fa97-4206-b689-b49fc17eae8c',
+                        orgGuid: 'ab560fec-a07e-4e8c-bba6-c68539f42b0e',
                         interactionData: {
                             routing: {
                                 targetType: 'QUEUE',
-                                targetAddress: 'ChatQueue',
+                                targetAddress: 'Voice Queue',
                                 priority: 2
                             }
                         }
                     },
                     
-
-                    //@Start
                     emojis: false,
                     uploadsEnabled: false,
                     markdown: true,
                     userData: {
-                        // phoneNumber: '+66832522999',
-                        // phoneType: 'Mobile',
-                        // customerId: '31149',
-                        // These fields should be provided via advanced configuration
-                        // firstName: 'Praenomen',
-                        // lastName: 'Banthoonipit',
-                        // email: 'Pattadon.Banthoonipit@genesys.com',
-                        // subject: 'Covid-19'
+                        
                     },
                     chatButton: {
 
@@ -62,13 +97,14 @@
                     ariaIdleAlertIntervals: [50, 25, 10],
                     ariaCharRemainingIntervals: [75, 25, 10]
                 }
-                //@END
+
               
             }
         };</script>
-
-    <script src="https://apps.mypurecloud.jp/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:true,pluginsPath:'https://apps.mypurecloud.jp/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
-    <script type="text/javascript">const customPlugin = CXBus.registerPlugin('Custom');
+    
+    
+       <script src="https://apps.mypurecloud.com.au/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:true,pluginsPath:'https://apps.mypurecloud.com.au/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+       <script type="text/javascript">const customPlugin = CXBus.registerPlugin('Custom');
         customPlugin.subscribe('WebChatService.started', function (e) {
             console.log('Chat started', e);
         });
@@ -83,7 +119,7 @@
                     firstname: 'Partitan',
                     lastname: 'Rungkrae',
                     email: 'partitan@gmail.com',
-                    subject: 'PEA'
+                    subject: 'AU demo'
                 },
                 formJSON: {
                     wrapper: '<table></table>',
@@ -121,5 +157,7 @@
                 }
             };
         }</script>
-</body>
-    </html>
+    
+
+	</body>
+</html>
