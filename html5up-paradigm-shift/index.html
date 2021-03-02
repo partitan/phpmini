@@ -101,6 +101,44 @@
               
             }
         };</script>
+	
+	<script
+  	type="text/javascript"
+  	src="https://apps.mypurecloud.com.au/webchat/jsapi-v1.js"
+	></script>
+	
+	const chatConfig = {
+  "webchatServiceUrl": "https://realtime.mypurecloud.com.au:443",
+  "webchatAppUrl": "https://apps.mypurecloud.com.au/webchat",
+  "orgId": "9138",
+  "orgName": "genesysapacanz",
+  "logLevel": "DEBUG",
+  "locale": "en",
+  "orgGuid": "ab560fec-a07e-4e8c-bba6-c68539f42b0e",
+  "cssClass": "screenshare-frame",
+  "css": "",
+  "standAloneApplication": false,
+  "webchatDeploymentKey": "ceb9c4a3-fa39-4ec6-acd1-e5075e90c826"
+};
+
+function loadScreenshare() {
+  ININ.screenshare.create(config, function(err, screenshare) {
+    if (err) {
+      // You should change this block to properly handle errors.
+      console.error(err);
+      if (err.name === 'UNSUPPORTED_BROWSER') {
+        // Redirect to instructions for unsupported browser, or handle appropriately
+        alert('Sorry, either your browser is not supported, or the page is not being served over TLS (HTTPS).');
+        return;
+      }
+      alert('An error occurred launching the screen share widget. See console for details');
+    }
+
+    screenshare.renderScreenShareForm({
+      containerEl: 'screenshareContainer'
+    });
+  });
+}
     
     
        <script src="https://apps.mypurecloud.com.au/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:true,pluginsPath:'https://apps.mypurecloud.com.au/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
