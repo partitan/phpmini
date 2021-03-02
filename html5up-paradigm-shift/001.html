@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Paradigm Shift by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload" onload="customPlugin.command('WebChat.open', getPattConfig());">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1>Online Banking Demo</h1>
+							<p>Thailand<a href="https://twitter.com/prungkrae">@prungkrae</a> <!-- / <a href="https://html5up.net">HTML5 UP</a></p> -->
+							<ul class="actions">
+								<li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+							</ul>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section id="first">
+						<header>
+							<h2>WebChat</h2>
+						</header>
+						<div class="content">
+							<p><strong>WebChat</strong> With the widgets, your customers can chat with your contact center agents directly from your website. Depending on the widget type you select, you can also use features such as Altocloud, user authentication, and enhanced user interface configuration.  Create a web chat implementation in two steps: Create a widget in PureCloud, and then add code to your website.</p>
+							<span class="image main"><img src="images/screenshot_0d005588.png" alt="" /></span>
+						</div>
+                </section>			
+	</section>
+
+			</div>
+
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+    
+            
+                     
+  <script
+  id="purecloud-webchat-js"
+  type="text/javascript"
+  src="https://apps.mypurecloud.com.au/webchat/jsapi-v1.js"
+  region="ap-southeast-2"
+  org-guid="ab560fec-a07e-4e8c-bba6-c68539f42b0e"
+  deployment-key="ceb9c4a3-fa39-4ec6-acd1-e5075e90c826"
+></script>
+  
+  let chatConfig = {
+  "webchatAppUrl": "https://apps.mypurecloud.com.au/webchat",
+  "webchatServiceUrl": "https://realtime.mypurecloud.com.au:443",
+  "orgId": "9138",
+  "orgGuid": "ab560fec-a07e-4e8c-bba6-c68539f42b0e",
+  "orgName": "genesysapacanz",
+  "queueName": "PR - VoiceQueue",
+  "logLevel": "DEBUG",
+  "locale": "en",
+  "data": {
+    "firstName": "test",
+    "lastName": "test",
+    "addressStreet": "",
+    "addressCity": "",
+    "addressPostalCode": "",
+    "addressState": "",
+    "phoneNumber": "",
+    "customField1Label": "",
+    "customField1": "",
+    "customField2Label": "",
+    "customField2": "",
+    "customField3Label": "",
+    "customField3": ""
+  },
+  "companyLogo": {
+    "width": 600,
+    "height": 149,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1953/assets/images/PC-blue-nomark.png"
+  },
+  "companyLogoSmall": {
+    "width": 25,
+    "height": 25,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1953/assets/images/companylogo.png"
+  },
+  "agentAvatar": {
+    "width": 462,
+    "height": 462,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/1953/assets/images/agent.jpg"
+  },
+  "welcomeMessage": "Thanks for chatting using the dev tools chat page.",
+  "cssClass": "webchat-frame",
+  "css": {
+    "width": "100%",
+    "height": "100%"
+  }
+};
+
+ININ.webchat.create(chatConfig, function(err, webchat) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
+
+    webchat.renderPopup({
+        width: 400,
+        height: 400,
+        title: 'Chat'
+    });
+});
+    
+
+	</body>
+</html>
