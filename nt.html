@@ -1,16 +1,88 @@
-<script type="text/javascript" charset="utf-8">
-  (function (g, e, n, es, ys) {
-    g['_genesysJs'] = e;
-    g[e] = g[e] || function () {
-      (g[e].q = g[e].q || []).push(arguments)
+<h1>Test WebChat!!!</h1>
+
+<script src="https://apps.mypurecloud.jp/widgets/9.0/cxbus.min.js" onload="javascript:CXBus.configure({debug:false,pluginsPath:'https://apps.mypurecloud.jp/widgets/9.0/plugins/'}); CXBus.loadPlugin('widgets-core');"></script>
+
+<script>
+  window._genesys = {
+    "widgets": {
+      "webchat": {
+        "transport": {
+          "type": "purecloud-v2-sockets",
+          "dataURL": "https://api.mypurecloud.jp",
+          "deploymentKey": "53720696-32a3-4060-bbc2-164f0e79b219",
+          "orgGuid": "dd369df5-e162-4c78-93f9-c9b24732a286",
+          "interactionData": {
+            "routing": {
+              "targetType": "QUEUE",
+              "targetAddress": "NAT - Queue",
+              "priority": 2
+            }
+          }
+        },
+        "userData": {
+          "addressStreet": "133/19",
+          "addressCity": "Dusit",
+          "addressPostalCode": "---",
+          "addressState": "---",
+          "phoneNumber": "0865071710",
+          "customField1Label": "",
+          "customField1": "",
+          "customField2Label": "",
+          "customField2": "",
+          "customField3Label": "",
+          "customField3": ""
+        }
+      }
+    }
+  };
+
+  function getAdvancedConfig() {
+    return {
+      "form": {
+        "autoSubmit": false,
+        "firstname": "test",
+        "lastname": "test",
+        "email": "partitan@gmail.com",
+        "subject": ""
+      },
+      "formJSON": {
+        "wrapper": "<table></table>",
+        "inputs": [
+          {
+            "id": "cx_webchat_form_firstname",
+            "name": "firstname",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "First Name"
+          },
+          {
+            "id": "cx_webchat_form_lastname",
+            "name": "lastname",
+            "maxlength": "100",
+            "placeholder": "Required",
+            "label": "Last Name"
+          },
+          {
+            "id": "cx_webchat_form_email",
+            "name": "email",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Email"
+          },
+          {
+            "id": "cx_webchat_form_subject",
+            "name": "subject",
+            "maxlength": "100",
+            "placeholder": "Optional",
+            "label": "Subject"
+          }
+        ]
+      }
     };
-    g[e].t = 1 * new Date();
-    g[e].c = es;
-    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-  })(window, 'Genesys', 'https://apps.mypurecloud.jp/genesys-bootstrap/genesys.min.js', {
-    environment: 'apne1',
-    deploymentId: '5560b2b1-2170-4d21-a60e-c5f51937e160'
-  });
+  }
+
+  const customPlugin = CXBus.registerPlugin('Custom');
 </script>
 
-<h1>Test Web Messenger!</h1>
+<button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start Chat</button>
+
