@@ -1,0 +1,69 @@
+<h1>Test WebChat!!!</h1>
+
+<script
+  id="purecloud-webchat-js"
+  type="text/javascript"
+  src="https://apps.mypurecloud.jp/webchat/jsapi-v1.js"
+  region="ap-northeast-1"
+  org-guid="dd369df5-e162-4c78-93f9-c9b24732a286"
+  deployment-key="731e85b3-8aba-4eb0-abe6-5f0418aeaba6"
+></script>
+
+let chatConfig = {
+  "webchatAppUrl": "https://apps.mypurecloud.jp/webchat",
+  "webchatServiceUrl": "https://realtime.mypurecloud.jp:443",
+  "orgId": "8078",
+  "orgGuid": "dd369df5-e162-4c78-93f9-c9b24732a286",
+  "orgName": "natconsultingcoltd",
+  "queueName": "NAT - Queue",
+  "logLevel": "DEBUG",
+  "locale": "en",
+  "data": {
+    "firstName": "test",
+    "lastName": "test",
+    "addressStreet": "133/19",
+    "addressCity": "Dusit",
+    "addressPostalCode": "---",
+    "addressState": "---",
+    "phoneNumber": "0865071710",
+    "customField1Label": "",
+    "customField1": "",
+    "customField2Label": "",
+    "customField2": "",
+    "customField3Label": "",
+    "customField3": ""
+  },
+  "companyLogo": {
+    "width": 600,
+    "height": 149,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/2279/assets/images/PC-blue-nomark.png"
+  },
+  "companyLogoSmall": {
+    "width": 25,
+    "height": 25,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/2279/assets/images/companylogo.png"
+  },
+  "agentAvatar": {
+    "width": 462,
+    "height": 462,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/2279/assets/images/agent.jpg"
+  },
+  "welcomeMessage": "Thanks for chatting using the dev tools chat page.",
+  "cssClass": "webchat-frame",
+  "css": {
+    "width": "100%",
+    "height": "100%"
+  }
+};
+
+ININ.webchat.create(chatConfig, function(err, webchat) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
+
+    webchat.renderFrame({
+        containerEl: 'chat-container'
+    });
+});
+
